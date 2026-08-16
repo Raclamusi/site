@@ -1,6 +1,9 @@
 name: check
 
-on: [push, pull_request_target, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  pull-requests: write
 
 jobs:
   check:
@@ -27,13 +30,13 @@ jobs:
         pip install requests
     - uses: actions/checkout@v7
       with:
-        repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.event.repository.full_name }}
-        ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.ref }}
+        repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.event.repository.full_name }}
+        ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
         allow-unsafe-pr-checkout: true
     - uses: actions/checkout@v7
       with:
-        repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.repo.full_name || github.event.repository.full_name }}
-        ref: ${{ github.event_name == 'pull_request_target' && 'master' || github.ref }}
+        repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.repo.full_name || github.event.repository.full_name }}
+        ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || github.ref }}
         sparse-checkout: .github
         path: .trusted
     - name: check
@@ -73,7 +76,7 @@ jobs:
       run: "! $BIN_DIR/rg -t md --vimgrep '[\u00ad\u200b]' $REPO_DIR"
 
   preview_build:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request'
     needs: [check, detect_forbidden_characters]
     uses: ./.github/workflows/build.yml
     with:
@@ -185,7 +188,7 @@ jobs:
             :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
 
             - **⫯** Commit: ${{ steps.vars.outputs.sha }}
-            - プレビューの生成には時間がかかります (3～5分)。進捗状況は[こちら](https://github.com/${{ steps.vars.outputs.repo_full }}/actions?query=event%3Apull_request_target+branch%3A${{ steps.vars.outputs.ubranch }})をご確認ください。
+            - プレビューの生成には時間がかかります (3～5分)。進捗状況は[こちら](https://github.com/${{ steps.vars.outputs.repo_full }}/actions?query=event%3Apull_request+branch%3A${{ steps.vars.outputs.ubranch }})をご確認ください。
 
             #### 変更記事一覧
 
