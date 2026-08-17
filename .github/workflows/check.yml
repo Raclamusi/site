@@ -187,6 +187,7 @@ jobs:
       - name: Comment on the pull request
         run: |
           gh pr comment ${{ github.event.pull_request.number }} --edit-last --create-if-none --body '
+          test: これは `gh` コマンドによるコメントです。
           :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
 
           - **⫯** Commit: ${{ steps.vars.outputs.sha }}
