@@ -77,17 +77,17 @@ jobs:
     - name: check
       run: "! $BIN_DIR/rg -t md --vimgrep '[\u00ad\u200b]' $REPO_DIR"
 
-  preview_build:
-    if: github.event_name == 'pull_request'
-    needs: [check, detect_forbidden_characters]
-    uses: ./.github/workflows/build.yml
-    with:
-      arguments: --pull ${{ github.event.number }}
-    concurrency:
-      group: cpprefjp.gh-pages.lock
+  # preview_build:
+  #   if: github.event_name == 'pull_request'
+  #   needs: [check, detect_forbidden_characters]
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     arguments: --pull ${{ github.event.number }}
+  #   concurrency:
+  #     group: cpprefjp.gh-pages.lock
 
   preview_link:
-    needs: preview_build
+    # needs: preview_build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
