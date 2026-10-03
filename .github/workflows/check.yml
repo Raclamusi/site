@@ -191,7 +191,7 @@ jobs:
           echo "${{ github.event.pull_request.number }}"
           echo "${{ github.event.pull_request.head.repo.full_name }}"
           echo "${{ github.event.pull_request.base.repo.full_name }}"
-          gh pr comment "$PR_NUMBER" --edit-last --create-if-none --body "$COMMENT_BODY"
+          gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body "$COMMENT_BODY"
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           COMMENT_BODY: |
