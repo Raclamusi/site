@@ -1,5 +1,5 @@
 # PR [\#4](https://github.com/Raclamusi/site/pull/4) プレビュー
-- &#x231a; 更新時刻: 2026-10-03 20:39:12 JST
+- &#x231a; 更新時刻: 2026-10-03 20:41:29 JST
 - &#x1f50d; [プレビュー (HTML)](https://Raclamusi.github.io/site/gen/pull/4)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/Raclamusi/site/actions?query=event%3Apull_request_target+branch%3Aci_test)
 - **&#x2AEF;** ソースの変更: [`fcab6b2..1bb9119`](https://github.com/Raclamusi/site/compare/fcab6b244e5d3d27d6d308a4911b9bff4e47fb6c..1bb911986c5b03e23765a86c57322f1936ab9e9c)
