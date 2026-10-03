@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-10-03T11:28:34.769641</updated>
+  <id>71f8f21d-7083-4e91-aa07-68263d3f1c0a</id>
+
+  
+    <entry>
+      <title>operator= -- Merge pull request #1761 from pipapo-888/patch-1</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_assign.html"/>
+      <id>8b8714a02076a80db5bb349b506b03b31a39de78:reference/exception/exception/op_assign.md</id>
+      <updated>2026-10-03T20:08:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_assign.md b/reference/exception/exception/op_assign.md
+index df991fe58..dc171ba39 100644
+--- a/reference/exception/exception/op_assign.md
++++ b/reference/exception/exception/op_assign.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-exception&amp;amp; operator=(const exception&amp;amp;);                    // (1) C++98
++exception&amp;amp; operator=(const exception&amp;amp;) throw();            // (1) C++98
+ exception&amp;amp; operator=(const exception&amp;amp;) noexcept;           // (1) C++11
+ constexpr exception&amp;amp; operator=(const exception&amp;amp;) noexcept; // (1) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge pull request #1761 from pipapo-888/patch-1</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_constructor.html"/>
+      <id>8b8714a02076a80db5bb349b506b03b31a39de78:reference/exception/exception/op_constructor.md</id>
+      <updated>2026-10-03T20:08:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_constructor.md b/reference/exception/exception/op_constructor.md
+index 1cb1b565b..e6480c30a 100644
+--- a/reference/exception/exception/op_constructor.md
++++ b/reference/exception/exception/op_constructor.md
+@@ -5,11 +5,11 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-exception();                    // (1) C++98
++exception() throw();            // (1) C++98
+ exception() noexcept;           // (1) C++11
+ constexpr exception() noexcept; // (1) C++26
+ 
+-exception(const exception&amp;amp;);                    // (2) C++98
++exception(const exception&amp;amp;) throw();            // (2) C++98
+ exception(const exception&amp;amp;) noexcept;           // (2) C++11
+ constexpr exception(const exception&amp;amp;) noexcept; // (2) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- Merge pull request #1761 from pipapo-888/patch-1</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_destructor.html"/>
+      <id>8b8714a02076a80db5bb349b506b03b31a39de78:reference/exception/exception/op_destructor.md</id>
+      <updated>2026-10-03T20:08:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_destructor.md b/reference/exception/exception/op_destructor.md
+index c5fd96992..fb7843204 100644
+--- a/reference/exception/exception/op_destructor.md
++++ b/reference/exception/exception/op_destructor.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-virtual ~exception();           // (1) C++98
++virtual ~exception() throw();   // (1) C++98
+ constexpr virtual ~exception(); // (1) C++26
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>what -- Merge pull request #1761 from pipapo-888/patch-1</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/what.html"/>
+      <id>8b8714a02076a80db5bb349b506b03b31a39de78:reference/exception/exception/what.md</id>
+      <updated>2026-10-03T20:08:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/what.md b/reference/exception/exception/what.md
+index f3fb62475..60a2fb07b 100644
+--- a/reference/exception/exception/what.md
++++ b/reference/exception/exception/what.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-virtual const char* what() const;                    // (1) C++98
++virtual const char* what() const throw();            // (1) C++98
+ virtual const char* what() const noexcept;           // (1) C++11
+ constexpr virtual const char* what() const noexcept; // (1) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- exception : デストラクタのC++98の宣言にthrow()を追加</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_destructor.html"/>
+      <id>7759d181dd48a9377859307db325fe17f03a0223:reference/exception/exception/op_destructor.md</id>
+      <updated>2026-10-03T17:29:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_destructor.md b/reference/exception/exception/op_destructor.md
+index c5fd96992..fb7843204 100644
+--- a/reference/exception/exception/op_destructor.md
++++ b/reference/exception/exception/op_destructor.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-virtual ~exception();           // (1) C++98
++virtual ~exception() throw();   // (1) C++98
+ constexpr virtual ~exception(); // (1) C++26
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>pipapo-888</name>
+        <email>kazuya2002uk@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- exception : 代入演算子のC++98の宣言にthrow()を追加</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_assign.html"/>
+      <id>252ca937681ebb1f11fbc49c5e2b4ba62530da84:reference/exception/exception/op_assign.md</id>
+      <updated>2026-10-03T17:28:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_assign.md b/reference/exception/exception/op_assign.md
+index df991fe58..dc171ba39 100644
+--- a/reference/exception/exception/op_assign.md
++++ b/reference/exception/exception/op_assign.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-exception&amp;amp; operator=(const exception&amp;amp;);                    // (1) C++98
++exception&amp;amp; operator=(const exception&amp;amp;) throw();            // (1) C++98
+ exception&amp;amp; operator=(const exception&amp;amp;) noexcept;           // (1) C++11
+ constexpr exception&amp;amp; operator=(const exception&amp;amp;) noexcept; // (1) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>pipapo-888</name>
+        <email>kazuya2002uk@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- exception : コンストラクタのC++98の宣言にthrow()を追加</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/op_constructor.html"/>
+      <id>6b1b7b1116ba774e0ac3b2fc2a26d6ee9e82b800:reference/exception/exception/op_constructor.md</id>
+      <updated>2026-10-03T17:27:36+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/op_constructor.md b/reference/exception/exception/op_constructor.md
+index 1cb1b565b..e6480c30a 100644
+--- a/reference/exception/exception/op_constructor.md
++++ b/reference/exception/exception/op_constructor.md
+@@ -5,11 +5,11 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-exception();                    // (1) C++98
++exception() throw();            // (1) C++98
+ exception() noexcept;           // (1) C++11
+ constexpr exception() noexcept; // (1) C++26
+ 
+-exception(const exception&amp;amp;);                    // (2) C++98
++exception(const exception&amp;amp;) throw();            // (2) C++98
+ exception(const exception&amp;amp;) noexcept;           // (2) C++11
+ constexpr exception(const exception&amp;amp;) noexcept; // (2) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>pipapo-888</name>
+        <email>kazuya2002uk@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>what -- exception::what : C++98の宣言にthrow()を追加</title>
+      <link href="https://cpprefjp.github.io/reference/exception/exception/what.html"/>
+      <id>0d45db64b8417be8afef91f09fff19875df36e03:reference/exception/exception/what.md</id>
+      <updated>2026-10-03T17:18:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/exception/what.md b/reference/exception/exception/what.md
+index f3fb62475..60a2fb07b 100644
+--- a/reference/exception/exception/what.md
++++ b/reference/exception/exception/what.md
+@@ -5,7 +5,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-virtual const char* what() const;                    // (1) C++98
++virtual const char* what() const throw();            // (1) C++98
+ virtual const char* what() const noexcept;           // (1) C++11
+ constexpr virtual const char* what() const noexcept; // (1) C++26
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>pipapo-888</name>
+        <email>kazuya2002uk@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
